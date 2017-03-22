@@ -1,10 +1,10 @@
-import { FinancesReduxPage } from './app.po';
+import { FinancialsAppPage } from './app.po';
 
-describe('finances-redux App', function() {
-  let page: FinancesReduxPage;
+describe('financials-app App', () => {
+  let page: FinancialsAppPage;
 
   beforeEach(() => {
-    page = new FinancesReduxPage();
+    page = new FinancialsAppPage();
   });
 
   it('should display message saying app works', () => {

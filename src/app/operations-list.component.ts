@@ -1,22 +1,24 @@
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
-import {Operation} from "./common/operation.model";
-
-
-
+import { Component, EventEmitter, Output, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Operation } from "app/common/operation.model";
 
 @Component({
-  selector: 'operations-list',
-  templateUrl: './operations-list.template.html',
+  selector: 'app-operations-list',
+  templateUrl: './operations-list.component.html',
+  styleUrls: ['./operations-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
+export class OperationsListComponent {
+  @Input()
+  operations: Array<Operation>;
+  @Output()
+  deleteOperation = new EventEmitter();
+  @Output()
+  incrementOperation = new EventEmitter();
+  @Output()
+  decrementOperation = new EventEmitter();
 
-export class OperationsList {
-  @Input() operations:Array<Operation>;
+  constructor() { }
 
-  constructor() {}
 
-  @Output() deleteOperation = new EventEmitter();
-  @Output() incrementOperation = new EventEmitter();
-  @Output() decrementOperation = new EventEmitter();
 }

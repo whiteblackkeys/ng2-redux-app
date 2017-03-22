@@ -1,9 +1,7 @@
 export class Operation {
-  id:number;
-  amount:number;
-  reason:string;
+    id: number;
+    amount: number;
+    reason: string;
 
-  constructor() {
-
-  }
+    constructor() { }
 }

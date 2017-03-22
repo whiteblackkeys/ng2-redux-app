@@ -1,36 +1,28 @@
-import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {StoreModule} from "@ngrx/store";
-import {operationsReducer} from "./common/operations";
-import {CommonModule} from "@angular/common";
-import {NewOperation} from "./new-operation.component";
-import {OperationsList} from "./operations-list.component";
 
+import {StoreModule} from "@ngrx/store"; 
+import { NewOperationComponent } from './new-operation.component';
+import { OperationsListComponent } from './operations-list.component';
+import { operationsReducer } from "app/common/operations";
 
 @NgModule({
-  bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    NewOperation,
-    OperationsList,
+    NewOperationComponent,
+    OperationsListComponent
   ],
-  imports: [ // import Angular's modules
+  imports: [
     BrowserModule,
-    CommonModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ operations: operationsReducer }),
+    StoreModule.provideStore({ operations: operationsReducer })
   ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor() {}
-
-
-
-}
-
+export class AppModule { }

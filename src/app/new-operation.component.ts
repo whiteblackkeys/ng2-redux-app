@@ -1,24 +1,24 @@
-import {Component, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
-import {Operation} from "./common/operation.model";
-
-
-
+import { Component, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Operation } from "app/common/operation.model";
 
 @Component({
-  selector: 'new-operation',
-  templateUrl: './new-operation.template.html',
+  selector: 'app-new-operation',
+  templateUrl: './new-operation.component.html',
+  styleUrls: ['./new-operation.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
-
 })
+export class NewOperationComponent {
+  @Output()
+  addOperation = new EventEmitter();
 
-export class NewOperation {
-
-  public operation:Operation;
+  public operation: Operation; 
+  
   constructor() {
     this.operation = new Operation();
   }
 
-  @Output() addOperation = new EventEmitter();
-
-
+  addNewOperation() {
+    console.log("Emitting new operation: " + JSON.stringify(this.operation));
+    this.addOperation.emit(this.operation);
+  }
 }

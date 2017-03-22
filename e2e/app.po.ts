@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class FinancesReduxPage {
+export class FinancialsAppPage {
   navigateTo() {
     return browser.get('/');
   }
